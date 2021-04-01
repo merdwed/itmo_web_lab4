@@ -1,4 +1,15 @@
 <template>
+  <div class=login>
+   <div class="header">
+    <center>
+    <p>Лабораторная №4</p>
+    <h4>Речкалов Михаил Константинович</h4>
+    <p><b>группа:</b> P3212 </p>
+    <p><b>вариант:</b> 30556</p>
+    </center>
+    <hr/>
+  </div>
+
   <div class="unprotected" v-if="loginError">
     <h1><b-badge variant="danger">You don't have rights here, mate :D</b-badge></h1>
     <h5>Seams that you don't have access rights... </h5>
@@ -13,6 +24,7 @@
       <b-btn variant="success" type="submit">Login</b-btn>
       <p v-if="error" class="error">Bad login information</p>
     </form>
+  </div>
   </div>
 
 </template>
@@ -46,3 +58,10 @@ export default {
   }
 }
 </script>
+<style scoped>
+.header {
+    font-family: fantasy; 
+    font-size: 24px;
+    color: #336; 
+}
+</style>

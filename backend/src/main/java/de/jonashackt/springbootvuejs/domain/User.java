@@ -3,7 +3,7 @@ package de.jonashackt.springbootvuejs.domain;
 import javax.persistence.*;
 
 @Entity
-@Table(name="users")
+@Table(name="t_users")
 public class User {
 
     // PrimaryKey

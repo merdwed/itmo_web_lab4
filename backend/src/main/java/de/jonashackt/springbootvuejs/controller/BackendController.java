@@ -17,7 +17,7 @@ public class BackendController {
     private static final Logger LOG = LoggerFactory.getLogger(BackendController.class);
 
     public static final String HELLO_TEXT = "Hello from Spring Boot Backend!";
-    public static final String SECURED_TEXT = "Hello from the secured resource!";
+    public static final String SECURED_TEXT = "{\"table\":[{\"paramR\":3,\"coordX\":3,\"coordY\":3,\"hit\":false},{\"paramR\":2,\"coordX\":2,\"coordY\":2,\"hit\":true},{\"paramR\":1,\"coordX\":1,\"coordY\":1,\"hit\":true}]}";
 
     @Autowired
     private UserRepository userRepository;

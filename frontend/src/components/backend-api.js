@@ -16,8 +16,15 @@ export default {
     createUser(firstName, lastName) {
         return AXIOS.post(`/user/` + firstName + '/' + lastName);
     },
-    getSecured(user, password) {
-        return AXIOS.get(`/secured/`,{
+    getTable(user, password ) {
+        return AXIOS.get(`/secured`,{
+            auth: {
+                username: user,
+                password: password
+            }});
+    },
+    putTable(user,password,paramR,coordX,coordY){
+        return AXIOS.post(`/secured`,{
             auth: {
                 username: user,
                 password: password
