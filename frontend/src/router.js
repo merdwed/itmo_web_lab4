@@ -15,8 +15,6 @@ const router = new Router({
     mode: 'history', // uris without hashes #, see https://router.vuejs.org/guide/essentials/history-mode.html#html5-history-mode
     routes: [
         { path: '/', component: Hello },
-        { path: '/callservice', component: Service },
-        { path: '/bootstrap', component: Bootstrap },
         { path: '/user', component: User },
         { path: '/login', component: Login },
         {

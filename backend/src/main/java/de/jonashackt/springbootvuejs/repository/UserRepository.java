@@ -9,8 +9,8 @@ import java.util.List;
 
 public interface UserRepository extends CrudRepository<User, Long> {
 
-    List<User> findByLastName(@Param("lastname") String lastname);
+    User findByUsername(@Param("username") String username);
 
-    List<User> findByFirstName(@Param("firstname") String firstname);
-
+    User findByPassword(@Param("password") String password);
+    List<User> findAll();
 }

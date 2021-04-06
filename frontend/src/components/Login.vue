@@ -47,7 +47,7 @@ export default {
       this.errors = [];
       this.$store.dispatch("login", { user: this.user, password: this.password})
         .then(() => {
-          this.$router.push('/Protected')
+          this.$router.push('/protected')
         })
         .catch(error => {
           this.loginError = true;

@@ -2,7 +2,7 @@ import axios from 'axios'
 
 const AXIOS = axios.create({
   baseURL: `/api`,
-  timeout: 1000
+  timeout: 100000
 });
 
 
@@ -13,22 +13,37 @@ export default {
     getUser(userId) {
         return AXIOS.get(`/user/` + userId);
     },
-    createUser(firstName, lastName) {
-        return AXIOS.post(`/user/` + firstName + '/' + lastName);
+    createUser(user, password) {
+        return AXIOS.post(`/user`, {username:user,password:password});
     },
-    getTable(user, password ) {
-        return AXIOS.get(`/secured`,{
+    auth(user, password){
+        return AXIOS.get(`/auth?username=${user}`,{
             auth: {
                 username: user,
                 password: password
             }});
     },
-    putTable(user,password,paramR,coordX,coordY){
-        return AXIOS.post(`/secured`,{
+    getTable(user, password,userId) {
+        return AXIOS.get(`/secured/`+userId,{
             auth: {
                 username: user,
                 password: password
             }});
+    },
+    putTable(user,password,userId,coordX,coordY){
+       
+
+        return AXIOS.post(`/secured/`+userId,{
+                coordX:coordX,
+                coordY:coordY,
+                userId:userId
+            },{
+            auth: {
+                username: user,
+                password: password
+            }
+            }
+            );
     }
 }
 

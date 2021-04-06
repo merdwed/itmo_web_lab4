@@ -4,8 +4,8 @@
 
     <h3>Just some database interaction...</h3>
 
-    <input type="text" v-model="user.firstName" placeholder="first name">
-    <input type="text" v-model="user.lastName" placeholder="last name">
+    <input type="text" v-model="user.user" placeholder="user">
+    <input type="password" v-model="user.password" placeholder="password">
 
     <button @click="createNewUser()">Create User</button>
 
@@ -13,7 +13,7 @@
 
     <button v-if="showResponse" @click="retrieveUser()">Retrieve user {{user.id}} data from database</button>
 
-    <h4 v-if="showRetrievedUser">Retrieved User {{retrievedUser.firstName}} {{retrievedUser.lastName}}</h4>
+    <h4 v-if="showRetrievedUser">Retrieved User {{retrievedUser.user}} {{retrievedUser.password}}</h4>
 
   </div>
 </template>
@@ -29,8 +29,8 @@
         response: [],
         errors: [],
         user: {
-          lastName: '',
-          firstName: '',
+          user: '',
+          password: '',
           id: 0
         },
         showResponse: false,
@@ -42,7 +42,7 @@
       // Fetches posts when the component is created.
       createNewUser () {
 
-        api.createUser(this.user.firstName, this.user.lastName).then(response => {
+        api.createUser(this.user.user, this.user.password).then(response => {
             // JSON responses are automatically parsed.
             this.response = response.data;
             this.user.id = response.data;
